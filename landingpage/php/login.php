@@ -10,18 +10,29 @@
 </head>
 
 <body>
-    <div class="container border border-info p-5 rounded" style="margin-top:width: 30vw">
-        <div class="border border-warning container">
-            <form method="POST" action="login.php">
-                <label for="username" class="form-label">Username:</label>
-                <input type="text" name="username" class="form-control" required>
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" name="password" class="form-control" required>
-                <button class="btn btn-primary p-2">submit</button>
-            </form>
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card border-info shadow-lg rounded" style="width: 30vw;">
+            <div class="card-body">
+                <h4 class="card-title text-center text-info mb-4">Login</h4>
+                <form method="POST" action="login.php">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username:</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-info w-100">Entrar</button>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <a href="signup.php" class="text-info">É novo por aqui? Registre-se</a>
+            </div>
         </div>
-        <a href="signup.php">É novo por aqui? Clique aqui para se registrar</a>
     </div>
+
 
 
     <?php
@@ -30,14 +41,14 @@
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $password = md5($_POST['password']);
         $username = md5($_POST['username']);
-        
-        // check if user exists
+
+
         $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
         $result = mysqli_query($link, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             header("Location: ../html/index.html");
-        } else{
+        } else {
             echo "Invalid username or password!";
         }
     }

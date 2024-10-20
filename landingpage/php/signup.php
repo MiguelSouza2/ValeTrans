@@ -11,24 +11,32 @@
 
 <body>
 
-    <div class="container border border-info p-5 rounded" style="width: 30vw">
-    <div class="container border border-info p-3 rounded" style="margin-top:width: 30vw">
-
-        <div class="border border-warning container">
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card border-info shadow-lg rounded" style="width: 30vw;">
+        <div class="card-body">
+            <h4 class="card-title text-center text-info mb-4">Registrar</h4>
             <form method="POST" action="signup.php">
-                <label for="username" class="form-label">Username:</label>
-                <input type="text" name="username" class="form-control" required>
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" name="password" class="form-control" required>
-                <label for="email" class="form-label">Email:</label>
-                <input type="text" name="email" class="form-control" required>
-                <button class="btn btn-primary p-2">submit</button>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-info w-100">Registrar</button>
             </form>
-
-            <a href="login.php">Já tem uma conta? Clique aqui para se conectar</a>
         </div>
-
+        <div class="card-footer text-center">
+            <a href="login.php" class="text-info">Já tem uma conta? Conecte-se</a>
+        </div>
     </div>
+</div>
+
 
     <?php
     include 'config/config.php';
